@@ -12,12 +12,7 @@ class Simulation {
   }
 
   drawAnimatedBall() {
-    this.drawer.ctx.clearRect(
-      this.drawer.rectLineWidth / 2,
-      this.drawer.rectLineWidth / 2,
-      this.drawer.canvasWidth - this.drawer.rectLineWidth,
-      this.drawer.canvasHeight - this.drawer.rectLineWidth
-    );
+    this.drawer.clearRect();
 
     this.drawer.drawBall({
       radius: this.ball.ballRadius,

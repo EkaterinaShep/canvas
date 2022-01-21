@@ -26,6 +26,15 @@ class Drawer {
     this.ctx.fill();
     this.ctx.closePath();
   }
+
+  clearRect() {
+    this.ctx.clearRect(
+      this.rectLineWidth / 2,
+      this.rectLineWidth / 2,
+      this.canvasWidth - this.rectLineWidth,
+      this.canvasHeight - this.rectLineWidth
+    );
+  }
 }
 
 export const drawer = new Drawer();
