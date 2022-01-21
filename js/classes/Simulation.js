@@ -15,7 +15,7 @@ class Simulation {
     this.drawer.clearRect();
 
     this.drawer.drawBall({
-      radius: this.ball.ballRadius,
+      radius: this.ball.radius,
       x: this.ball.x,
       y: this.ball.y,
       startAngle: 0,
@@ -25,20 +25,18 @@ class Simulation {
     if (
       this.ball.x + this.dx >
         this.drawer.canvasWidth -
-          this.ball.ballRadius -
+          this.ball.radius -
           this.drawer.rectLineWidth / 2 ||
-      this.ball.x + this.dx <
-        this.ball.ballRadius + this.drawer.rectLineWidth / 2
+      this.ball.x + this.dx < this.ball.radius + this.drawer.rectLineWidth / 2
     ) {
       this.dx = -this.dx;
     }
     if (
       this.ball.y + this.dy >
         this.drawer.canvasHeight -
-          this.ball.ballRadius -
+          this.ball.radius -
           this.drawer.rectLineWidth / 2 ||
-      this.ball.y + this.dy <
-        this.ball.ballRadius + this.drawer.rectLineWidth / 2
+      this.ball.y + this.dy < this.ball.radius + this.drawer.rectLineWidth / 2
     ) {
       this.dy = -this.dy;
     }

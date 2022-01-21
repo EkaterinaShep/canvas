@@ -1,14 +1,17 @@
-import Ball from './classes/Ball.js';
-import { drawer } from './classes/Drawer.js';
-import Simulation from './classes/Simulation.js';
-import { RECTANGLE_LINEWIDTH } from './constants.js';
+import { Ball, drawer, Simulation } from './classes/index.js';
+import {
+  BALL_END_ANGLE,
+  BALL_RADIUS,
+  BALL_START_ANGLE,
+  RECTANGLE_LINEWIDTH,
+} from './constants.js';
 
 drawer.drawRectangle({ lineWidth: RECTANGLE_LINEWIDTH });
 const ball = new Ball({
   drawer,
-  radius: 10,
-  startAngle: 0,
-  endAngle: Math.PI * 2,
+  radius: BALL_RADIUS,
+  startAngle: BALL_START_ANGLE,
+  endAngle: BALL_END_ANGLE,
 });
 
 new Simulation(drawer, ball).startBallAnimation();
