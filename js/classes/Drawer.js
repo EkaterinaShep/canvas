@@ -19,9 +19,9 @@ class Drawer {
     this.ctx.strokeRect(x, y, width, height);
   }
 
-  drawBall({ radius, x, y, startAngle, endAngle }) {
+  drawBall({ ball }) {
     this.ctx.beginPath();
-    this.ctx.arc(x, y, radius, startAngle, endAngle);
+    this.ctx.arc(ball.x, ball.y, ball.radius, ball.startAngle, ball.endAngle);
     this.ctx.fillStyle = 'blue';
     this.ctx.fill();
     this.ctx.closePath();

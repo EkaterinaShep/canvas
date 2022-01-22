@@ -4,38 +4,20 @@ import {
   BALL_RADIUS,
   BALL_START_ANGLE,
   RECTANGLE_LINEWIDTH,
+  SPEED,
 } from './constants.js';
 
-drawer.drawRectangle({ lineWidth: RECTANGLE_LINEWIDTH });
 const ball = new Ball({
-  drawer,
   radius: BALL_RADIUS,
   startAngle: BALL_START_ANGLE,
   endAngle: BALL_END_ANGLE,
+  speed: SPEED,
+  startCoordinates: {
+    x: drawer.canvasWidth / 1.5,
+    y: drawer.canvasHeight / 1.5,
+  },
 });
 
+drawer.drawRectangle({ lineWidth: RECTANGLE_LINEWIDTH });
+
 new Simulation(drawer, ball).startBallAnimation();
-
-// import {
-//   CANVAS_HEIGHT,
-//   CANVAS_WIDTH,
-//   ctx,
-//   RECTANGLE_LINEWIDTH,
-// } from './constants.js';
-// import { drawRectangle, setContextToBallAnimation } from './functions/index.js';
-
-// drawRectangle({
-//   context: ctx,
-//   lineWidth: RECTANGLE_LINEWIDTH,
-//   width: CANVAS_WIDTH,
-//   height: CANVAS_HEIGHT,
-// });
-
-// const drawAnimatedBall = setContextToBallAnimation({
-//   CANVAS_HEIGHT,
-//   CANVAS_WIDTH,
-//   ctx,
-//   RECTANGLE_LINEWIDTH,
-// });
-
-// setInterval(drawAnimatedBall, 10);
