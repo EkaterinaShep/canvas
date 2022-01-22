@@ -11,16 +11,16 @@ class Ball {
     this.y = startCoordinates.y;
   }
 
-  changeCoordinates({ canvasWidth, canvasHeight, rectLineWidth }) {
+  changeCoordinates({ canvasWidth, canvasHeight }) {
     if (
-      this.x + this.dx > canvasWidth - this.radius - rectLineWidth ||
-      this.x + this.dx < this.radius + rectLineWidth
+      this.x + this.dx > canvasWidth - this.radius ||
+      this.x + this.dx < this.radius
     ) {
       this.dx = -this.dx;
     }
     if (
-      this.y + this.dy > canvasHeight - this.radius - rectLineWidth ||
-      this.y + this.dy < this.radius + rectLineWidth
+      this.y + this.dy > canvasHeight - this.radius ||
+      this.y + this.dy < this.radius
     ) {
       this.dy = -this.dy;
     }

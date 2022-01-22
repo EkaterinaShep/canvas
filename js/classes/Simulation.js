@@ -18,7 +18,6 @@ class Simulation {
     this.ball.changeCoordinates({
       canvasWidth: this.drawer.canvasWidth,
       canvasHeight: this.drawer.canvasHeight,
-      rectLineWidth: this.drawer.rectLineWidth / 2,
     });
   }
 }

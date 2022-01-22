@@ -3,7 +3,6 @@ import {
   BALL_END_ANGLE,
   BALL_RADIUS,
   BALL_START_ANGLE,
-  RECTANGLE_LINEWIDTH,
   SPEED,
 } from './constants.js';
 
@@ -18,6 +17,5 @@ const ball = new Ball({
   },
 });
 
-drawer.drawRectangle({ lineWidth: RECTANGLE_LINEWIDTH });
 
 new Simulation(drawer, ball).startBallAnimation();
