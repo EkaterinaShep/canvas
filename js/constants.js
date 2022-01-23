@@ -1,6 +1,0 @@
-const BALL_RADIUS = 10;
-const BALL_START_ANGLE = 0;
-const BALL_END_ANGLE = Math.PI * 2;
-const SPEED = 10;
-
-export { BALL_RADIUS, BALL_START_ANGLE, BALL_END_ANGLE, SPEED };

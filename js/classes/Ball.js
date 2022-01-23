@@ -1,32 +1,25 @@
 class Ball {
-  dx = 1;
-  dy = -1;
-
-  constructor({ radius, startAngle, endAngle, speed, startCoordinates }) {
+  constructor({
+    radius,
+    startAngle = 0,
+    endAngle = Math.PI * 2,
+    velocities,
+    startCoordinates,
+    color,
+  }) {
     this.radius = radius;
     this.startAngle = startAngle;
     this.endAngle = endAngle;
-    this.speed = speed;
+    this.vx = velocities.vx;
+    this.vy = velocities.vy;
     this.x = startCoordinates.x;
     this.y = startCoordinates.y;
+    this.color = color;
   }
 
-  changeCoordinates({ canvasWidth, canvasHeight }) {
-    if (
-      this.x + this.dx > canvasWidth - this.radius ||
-      this.x + this.dx < this.radius
-    ) {
-      this.dx = -this.dx;
-    }
-    if (
-      this.y + this.dy > canvasHeight - this.radius ||
-      this.y + this.dy < this.radius
-    ) {
-      this.dy = -this.dy;
-    }
-
-    this.x += this.dx;
-    this.y += this.dy;
+  changeCoordinates() {
+    this.x += this.vx;
+    this.y += this.vy;
   }
 }
 

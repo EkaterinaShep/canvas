@@ -9,7 +9,7 @@ class Drawer {
   drawBall({ ball }) {
     this.ctx.beginPath();
     this.ctx.arc(ball.x, ball.y, ball.radius, ball.startAngle, ball.endAngle);
-    this.ctx.fillStyle = 'blue';
+    this.ctx.fillStyle = ball.color;
     this.ctx.fill();
     this.ctx.closePath();
   }

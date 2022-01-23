@@ -1,21 +1,34 @@
 class Simulation {
-  constructor(drawer, ball) {
+  balls = [];
+
+  constructor(drawer, collider) {
     this.drawer = drawer;
-    this.ball = ball;
+    this.collider = collider;
   }
 
-  startBallAnimation() {
-    setInterval(() => this.drawAnimatedBall(), this.ball.speed);
+  addBall(ball) {
+    this.balls.push(ball);
+
+    return this;
   }
 
-  drawAnimatedBall() {
+  startBallsAnimation() {
+    setInterval(() => this.animateBalls(), 10);
+  }
+
+  animateBalls() {
     this.drawer.clearRect();
 
-    this.drawer.drawBall({
-      ball: this.ball,
-    });
+    this.balls.forEach((ball) =>
+      this.drawer.drawBall({
+        ball,
+      })
+    );
 
-    this.ball.changeCoordinates({
+    this.balls.forEach((ball) => ball.changeCoordinates());
+
+    this.collider.checkCollisions({
+      balls: this.balls,
       canvasWidth: this.drawer.canvasWidth,
       canvasHeight: this.drawer.canvasHeight,
     });
