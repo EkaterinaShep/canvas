@@ -29,34 +29,41 @@ class Collider {
   }
 
   testCollisionsWithWalls(ball) {
-    if (
-      this.isCollidingWithRightWall(ball) ||
-      this.isCollidingWithLeftWall(ball)
-    ) {
+    if (this.isCollidingWithRightWall(ball)) {
       ball.vx = -ball.vx;
+      ball.x = this.canvasWidth - ball.radius;
     }
-    if (
-      this.isCollidingWithBottomWall(ball) ||
-      this.isCollidingWithTopWall(ball)
-    ) {
+
+    if (this.isCollidingWithLeftWall(ball)) {
+      ball.vx = -ball.vx;
+      ball.x = ball.radius;
+    }
+
+    if (this.isCollidingWithBottomWall(ball)) {
       ball.vy = -ball.vy;
+      ball.y = this.canvasHeight - ball.radius;
+    }
+
+    if (this.isCollidingWithTopWall(ball)) {
+      ball.vy = -ball.vy;
+      ball.y = ball.radius;
     }
   }
 
   isCollidingWithRightWall(ball) {
-    return ball.x + ball.vx > this.canvasWidth - ball.radius;
+    return ball.x > this.canvasWidth - ball.radius;
   }
 
   isCollidingWithLeftWall(ball) {
-    return ball.x + ball.vx < ball.radius;
+    return ball.x < ball.radius;
   }
 
   isCollidingWithTopWall(ball) {
-    return ball.y + ball.vy < ball.radius;
+    return ball.y < ball.radius;
   }
 
   isCollidingWithBottomWall(ball) {
-    return ball.y + ball.vy > this.canvasHeight - ball.radius;
+    return ball.y > this.canvasHeight - ball.radius;
   }
 
   isColliding(ball1, ball2) {
